@@ -708,7 +708,7 @@ func applyLuckSystemWithParentHash(baseReward *big.Int, parentBlockHash common.H
 		{100.0, 25},  // 0.25% chance for 100x
 		{250.0, 10},  // 0.10% chance for 250x
 		{500.0, 5},   // 0.05% chance for 500x
-		{1000.0, 2},  // 0.025% chance for 1000x
+		{1000.0, 2},  // 0.02% chance for 1000x
 	}
 
     cumulativeProbability := uint64(0)
