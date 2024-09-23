@@ -700,7 +700,7 @@ func applyLuckSystemWithParentHash(baseReward *big.Int, parentBlockHash common.H
 		{0.5, 1500},  // 15.00% chance for 0.5x
 		{0.0, 1200},  // 12.00% chance for 0x
 		{2.0, 1500},  // 15.00% chance for 2x
-		{3.0, 857},   // 8.575% chance for 3x
+		{3.0, 858},   // 8.58% chance for 3x
 		{5.0, 500},   // 5.00% chance for 5x
 		{10.0, 250},  // 2.50% chance for 10x
 		{25.0, 100},  // 1.00% chance for 25x
