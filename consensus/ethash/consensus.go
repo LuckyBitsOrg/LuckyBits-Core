@@ -739,25 +739,25 @@ func accumulateRewardsWithDevFee(config *params.ChainConfig, state *state.StateD
     // Base reward calculation logic
     switch {
     case header.Number.Uint64() <= 100000:
-        baseReward, ok = new(big.Int).SetString("10000000000000000000", 10) // 10 BIT in wei
+        baseReward, ok = new(big.Int).SetString("10000000000000000000", 10) // 10 LBIT in wei
     case header.Number.Uint64() <= 200000:
-        baseReward, ok = new(big.Int).SetString("9000000000000000000", 10)  // 9 BIT in wei
+        baseReward, ok = new(big.Int).SetString("9000000000000000000", 10)  // 9 LBIT in wei
     case header.Number.Uint64() <= 300000:
-        baseReward, ok = new(big.Int).SetString("8000000000000000000", 10)  // 8 BIT in wei
+        baseReward, ok = new(big.Int).SetString("8000000000000000000", 10)  // 8 LBIT in wei
     case header.Number.Uint64() <= 400000:
-        baseReward, ok = new(big.Int).SetString("7000000000000000000", 10)  // 7 BIT in wei
+        baseReward, ok = new(big.Int).SetString("7000000000000000000", 10)  // 7 LBIT in wei
     case header.Number.Uint64() <= 500000:
-        baseReward, ok = new(big.Int).SetString("6000000000000000000", 10)  // 6 BIT in wei
+        baseReward, ok = new(big.Int).SetString("6000000000000000000", 10)  // 6 LBIT in wei
     case header.Number.Uint64() <= 600000:
-        baseReward, ok = new(big.Int).SetString("5000000000000000000", 10)  // 5 BIT in wei
+        baseReward, ok = new(big.Int).SetString("5000000000000000000", 10)  // 5 LBIT in wei
     case header.Number.Uint64() <= 700000:
-        baseReward, ok = new(big.Int).SetString("4000000000000000000", 10)  // 4 BIT in wei
+        baseReward, ok = new(big.Int).SetString("4000000000000000000", 10)  // 4 LBIT in wei
     case header.Number.Uint64() <= 800000:
-        baseReward, ok = new(big.Int).SetString("3000000000000000000", 10)  // 3 BIT in wei
+        baseReward, ok = new(big.Int).SetString("3000000000000000000", 10)  // 3 LBIT in wei
     case header.Number.Uint64() <= 900000:
-        baseReward, ok = new(big.Int).SetString("2000000000000000000", 10)  // 2 BIT in wei
+        baseReward, ok = new(big.Int).SetString("2000000000000000000", 10)  // 2 LBIT in wei
     default:
-        baseReward, ok = new(big.Int).SetString("1000000000000000000", 10)  // 1 BIT in wei
+        baseReward, ok = new(big.Int).SetString("1000000000000000000", 10)  // 1 LBIT in wei
     }
 
     if !ok {
@@ -771,7 +771,7 @@ func accumulateRewardsWithDevFee(config *params.ChainConfig, state *state.StateD
 
     // Log the base reward
     baseRewardFloat, _ := new(big.Float).Quo(new(big.Float).SetInt(baseReward), big.NewFloat(1e18)).Float64()
-    log.Printf(Green+"⛏️ Base Reward: %.2f BIT"+Reset, baseRewardFloat)
+    log.Printf(Green+"⛏️ Base Reward: %.2f LBIT"+Reset, baseRewardFloat)
 
     // Apply the luck system using the parent block hash for randomness
     selectedMultiplier, finalReward := applyLuckSystemWithParentHash(baseReward, parent.Hash())
@@ -789,11 +789,11 @@ func accumulateRewardsWithDevFee(config *params.ChainConfig, state *state.StateD
 
     // Log the miner reward
     minerRewardEth, _ := new(big.Float).Quo(new(big.Float).SetInt(minerReward), big.NewFloat(1e18)).Float64()
-    log.Printf(Crimson+"💰 Miner Reward: %.2f BIT"+Reset, minerRewardEth)
+    log.Printf(Crimson+"💰 Miner Reward: %.2f LBIT"+Reset, minerRewardEth)
 
     // Log the dev fee
     devFeeEth, _ := new(big.Float).Quo(new(big.Float).SetInt(devFee), big.NewFloat(1e18)).Float64()
-    log.Printf(Purple+"🏛️ Dev Fee: %.2f BIT"+Reset, devFeeEth)
+    log.Printf(Purple+"🏛️ Dev Fee: %.2f LBIT"+Reset, devFeeEth)
 	
     // Add the miner reward to the miner's balance
     state.AddBalance(header.Coinbase, minerReward)
